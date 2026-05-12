@@ -2,190 +2,103 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JavaScript Loops for Students</title>
+    <title>JS Loop Reference Sheet</title>
     <style>
-        :root {
-            --primary: #2563eb;
-            --success: #059669;
-            --danger: #dc2626;
-            --dark: #1e293b;
-            --light: #f8fafc;
-        }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            background-color: #f1f5f9;
-            color: var(--dark);
-            margin: 0;
-            padding: 20px;
-        }
-
-        .container {
-            max-width: 900px;
-            margin: 0 auto;
-        }
-
-        header {
-            text-align: center;
-            padding: 2rem 0;
-            background: var(--primary);
-            color: white;
-            border-radius: 12px;
-            margin-bottom: 2rem;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-        }
-
-        .loop-card {
-            background: white;
-            padding: 2rem;
-            border-radius: 12px;
-            margin-bottom: 2rem;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-            border-top: 5px solid var(--primary);
-        }
-
-        h2 { color: var(--primary); margin-top: 0; }
+        body { font-family: 'Segoe UI', sans-serif; background: #f0f2f5; padding: 20px; color: #333; }
+        .container { max-width: 800px; margin: auto; }
+        h1 { text-align: center; color: #1a1a1a; }
         
-        code {
-            background: #272822;
-            color: #f8f8f2;
-            padding: 1rem;
-            display: block;
-            border-radius: 8px;
-            overflow-x: auto;
-            margin: 1rem 0;
-            font-family: 'Courier New', Courier, monospace;
-        }
-
-        .controls {
-            display: flex;
-            gap: 10px;
-            margin-top: 1rem;
-        }
-
-        button {
-            padding: 10px 20px;
-            border: none;
-            border-radius: 6px;
-            cursor: pointer;
-            font-weight: bold;
-            transition: opacity 0.2s;
-        }
-
-        .btn-inc { background-color: var(--success); color: white; }
-        .btn-dec { background-color: var(--danger); color: white; }
-        button:hover { opacity: 0.8; }
-
-        .output-screen {
-            background: #e2e8f0;
-            padding: 1rem;
-            border-radius: 8px;
-            margin-top: 1rem;
-            min-height: 50px;
-            border: 2px dashed #cbd5e1;
-        }
-
-        .log-entry {
-            border-bottom: 1px solid #cbd5e1;
-            padding: 4px 0;
-        }
+        /* The Palette Card */
+        .card { background: white; border-radius: 10px; padding: 20px; margin-bottom: 30px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+        .loop-title { font-size: 1.5rem; font-weight: bold; border-bottom: 2px solid #eee; margin-bottom: 15px; padding-bottom: 5px; }
+        
+        .description { font-style: italic; color: #666; margin-bottom: 15px; }
+        
+        /* Code Box */
+        pre { background: #2d2d2d; color: #f8f8f2; padding: 15px; border-radius: 5px; overflow-x: auto; font-size: 0.9rem; }
+        
+        /* Output Box */
+        .output-label { font-weight: bold; margin-top: 10px; display: block; font-size: 0.8rem; text-transform: uppercase; color: #888; }
+        .output { background: #e9ecef; padding: 10px; border-left: 4px solid #333; font-family: monospace; margin-bottom: 20px; }
+        
+        .up { border-left-color: #059669; color: #059669; }
+        .down { border-left-color: #dc2626; color: #dc2626; }
     </style>
 </head>
 <body>
 
 <div class="container">
-    <header>
-        <h1>Mastering JavaScript Loops</h1>
-        <p>A Visual Guide for Beginners</p>
-    </header>
+    <h1>JavaScript Loops Palette</h1>
 
-    <!-- 1. FOR LOOP -->
-    <section class="loop-card">
-        <h2>1. The For Loop (The Planner)</h2>
-        <p>Best used when you know the <strong>exact number of steps</strong> before starting.</p>
+    <!-- FOR LOOP SECTION -->
+    <div class="card">
+        <div class="loop-title">1. The For Loop</div>
+        <p class="description">Used when we know exactly how many times to repeat.</p>
         
-        <code>for (initialization; condition; change) { ... }</code>
+        <strong>Increment (Adding 1)</strong>
+        <pre>for (let i = 1; i <= 3; i++) {
+  console.log(i);
+}</pre>
+        <span class="output-label">Result:</span>
+        <div class="output up">1, 2, 3</div>
+
+        <strong>Decrement (Subtracting 1)</strong>
+        <pre>for (let i = 3; i >= 1; i--) {
+  console.log(i);
+}</pre>
+        <span class="output-label">Result:</span>
+        <div class="output down">3, 2, 1</div>
+    </div>
+
+    <!-- WHILE LOOP SECTION -->
+    <div class="card">
+        <div class="loop-title">2. The While Loop</div>
+        <p class="description">The "Watchman": Runs as long as the condition stays true.</p>
         
-        <div class="controls">
-            <button class="btn-inc" onclick="runFor(true)">Run Increment (0 to 4)</button>
-            <button class="btn-dec" onclick="runFor(false)">Run Decrement (5 to 1)</button>
-        </div>
-        <div id="for-output" class="output-screen">Output will appear here...</div>
-    </section>
+        <strong>Increment (Adding 2)</strong>
+        <pre>let i = 0;
+while (i <= 4) {
+  console.log(i);
+  i += 2;
+}</pre>
+        <span class="output-label">Result:</span>
+        <div class="output up">0, 2, 4</div>
 
-    <!-- 2. WHILE LOOP -->
-    <section class="loop-card" style="border-top-color: var(--success);">
-        <h2>2. The While Loop (The Watchman)</h2>
-        <p>Runs as long as a condition is true. It checks <strong>before</strong> it acts.</p>
+        <strong>Decrement (Subtracting 2)</strong>
+        <pre>let i = 10;
+while (i >= 6) {
+  console.log(i);
+  i -= 2;
+}</pre>
+        <span class="output-label">Result:</span>
+        <div class="output down">10, 8, 6</div>
+    </div>
+
+    <!-- DO...WHILE LOOP SECTION -->
+    <div class="card">
+        <div class="loop-title">3. The Do...While Loop</div>
+        <p class="description">The "First Try": Always runs at least once before checking.</p>
         
-        <code>while (condition) { // change variable inside! }</code>
+        <strong>Increment (At least once)</strong>
+        <pre>let i = 0;
+do {
+  console.log(i);
+  i++;
+} while (i < 1);</pre>
+        <span class="output-label">Result:</span>
+        <div class="output up">0</div>
 
-        <div class="controls">
-            <button class="btn-inc" onclick="runWhile(true)">Run Increment</button>
-            <button class="btn-dec" onclick="runWhile(false)">Run Decrement</button>
-        </div>
-        <div id="while-output" class="output-screen">Output will appear here...</div>
-    </section>
+        <strong>Decrement (Countdown)</strong>
+        <pre>let i = 2;
+do {
+  console.log(i);
+  i--;
+} while (i > 0);</pre>
+        <span class="output-label">Result:</span>
+        <div class="output down">2, 1</div>
+    </div>
 
-    <!-- 3. DO...WHILE LOOP -->
-    <section class="loop-card" style="border-top-color: var(--danger);">
-        <h2>3. The Do...While Loop (The Doer)</h2>
-        <p>Always runs <strong>at least once</strong>, even if the condition is false!</p>
-        
-        <code>do { ... } while (condition);</code>
-
-        <div class="controls">
-            <button class="btn-inc" onclick="runDoWhile()">Run "At Least Once" Demo</button>
-        </div>
-        <div id="do-output" class="output-screen">Output will appear here...</div>
-    </section>
 </div>
-
-<script>
-    function updateDisplay(id, content) {
-        document.getElementById(id).innerHTML = content;
-    }
-
-    // FOR LOOP LOGIC
-    function runFor(isIncrement) {
-        let result = "";
-        if(isIncrement) {
-            for (let i = 0; i < 5; i++) {
-                result += `<div class="log-entry">Index is: <b>${i}</b> (Incrementing)</div>`;
-            }
-        } else {
-            for (let i = 5; i > 0; i--) {
-                result += `<div class="log-entry">Index is: <b>${i}</b> (Decrementing)</div>`;
-            }
-        }
-        updateDisplay('for-output', result);
-    }
-
-    // WHILE LOOP LOGIC
-    function runWhile(isIncrement) {
-        let result = "";
-        let i = isIncrement ? 0 : 5;
-        
-        while (isIncrement ? i < 5 : i > 0) {
-            result += `<div class="log-entry">Value: <b>${i}</b></div>`;
-            isIncrement ? i++ : i--;
-        }
-        updateDisplay('while-output', result);
-    }
-
-    // DO WHILE LOGIC
-    function runDoWhile() {
-        let i = 10;
-        let result = "<em>Condition is (i < 5), but i starts at 10...</em><br>";
-        do {
-            result += `<div class="log-entry">This ran once! Value: <b>${i}</b></div>`;
-            i++;
-        } while (i < 5);
-        updateDisplay('do-output', result);
-    }
-</script>
 
 </body>
 </html>
