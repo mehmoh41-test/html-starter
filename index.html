@@ -2,102 +2,156 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>JS Loop Reference Sheet</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Loops: Student Reference</title>
     <style>
-        body { font-family: 'Segoe UI', sans-serif; background: #f0f2f5; padding: 20px; color: #333; }
-        .container { max-width: 800px; margin: auto; }
-        h1 { text-align: center; color: #1a1a1a; }
+        body { 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            background: #f0f2f5; 
+            padding: 20px; 
+            line-height: 1.6;
+        }
+        .container { max-width: 850px; margin: auto; }
+        h1 { text-align: center; color: #1a1a1a; margin-bottom: 30px; }
         
         /* The Palette Card */
-        .card { background: white; border-radius: 10px; padding: 20px; margin-bottom: 30px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
-        .loop-title { font-size: 1.5rem; font-weight: bold; border-bottom: 2px solid #eee; margin-bottom: 15px; padding-bottom: 5px; }
+        .card { 
+            background: white; 
+            border-radius: 12px; 
+            padding: 25px; 
+            margin-bottom: 40px; 
+            box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1); 
+        }
+        .loop-title { 
+            font-size: 1.6rem; 
+            font-weight: bold; 
+            border-bottom: 3px solid #3b82f6; 
+            margin-bottom: 20px; 
+            display: inline-block;
+        }
         
-        .description { font-style: italic; color: #666; margin-bottom: 15px; }
+        .description { font-style: italic; color: #4b5563; margin-bottom: 20px; }
         
         /* Code Box */
-        pre { background: #2d2d2d; color: #f8f8f2; padding: 15px; border-radius: 5px; overflow-x: auto; font-size: 0.9rem; }
+        pre { 
+            background: #1e1e1e; 
+            color: #dcdcdc; 
+            padding: 18px; 
+            border-radius: 8px; 
+            font-size: 1rem;
+            margin-bottom: 10px;
+        }
         
-        /* Output Box */
-        .output-label { font-weight: bold; margin-top: 10px; display: block; font-size: 0.8rem; text-transform: uppercase; color: #888; }
-        .output { background: #e9ecef; padding: 10px; border-left: 4px solid #333; font-family: monospace; margin-bottom: 20px; }
+        /* Output Labels and Boxes */
+        .output-label { font-weight: bold; font-size: 0.8rem; text-transform: uppercase; color: #6b7280; }
+        .output { 
+            background: #f8fafc; 
+            padding: 12px; 
+            border-radius: 6px;
+            font-family: 'Courier New', Courier, monospace; 
+            margin-bottom: 25px;
+            font-weight: bold;
+        }
         
-        .up { border-left-color: #059669; color: #059669; }
-        .down { border-left-color: #dc2626; color: #dc2626; }
+        .up { border-left: 5px solid #10b981; color: #059669; }
+        .down { border-left: 5px solid #ef4444; color: #dc2626; }
+
+        /* The Notes Section (Yellowish Background) */
+        .notes-section {
+            background-color: #fefce8;
+            border: 2px dashed #facc15;
+            padding: 25px;
+            border-radius: 12px;
+            margin-top: 50px;
+        }
+        .notes-title {
+            color: #854d0e;
+            font-size: 1.4rem;
+            font-weight: bold;
+            margin-top: 0;
+            text-decoration: underline;
+        }
+        .notes-list { color: #713f12; }
+        .notes-list li { margin-bottom: 12px; }
+        strong { color: #000; }
     </style>
 </head>
 <body>
 
 <div class="container">
-    <h1>JavaScript Loops Palette</h1>
+    <h1>JavaScript Loops Reference</h1>
 
-    <!-- FOR LOOP SECTION -->
+    <!-- SECTION 1: FOR LOOP -->
     <div class="card">
-        <div class="loop-title">1. The For Loop</div>
-        <p class="description">Used when we know exactly how many times to repeat.</p>
+        <div class="loop-title">1. The FOR Loop</div>
+        <p class="description">Ideal for counting. All control logic is in one line.</p>
         
-        <strong>Increment (Adding 1)</strong>
-        <pre>for (let i = 1; i <= 3; i++) {
+        <strong>Increment (Counting Up)</strong>
+        <pre>for (let i = 1; i <= 5; i++) {
   console.log(i);
 }</pre>
         <span class="output-label">Result:</span>
-        <div class="output up">1, 2, 3</div>
+        <div class="output up">1, 2, 3, 4, 5</div>
 
-        <strong>Decrement (Subtracting 1)</strong>
-        <pre>for (let i = 3; i >= 1; i--) {
+        <strong>Decrement (Counting Down)</strong>
+        <pre>for (let i = 5; i >= 1; i--) {
   console.log(i);
 }</pre>
         <span class="output-label">Result:</span>
-        <div class="output down">3, 2, 1</div>
+        <div class="output down">5, 4, 3, 2, 1</div>
     </div>
 
-    <!-- WHILE LOOP SECTION -->
+    <!-- SECTION 2: WHILE LOOP -->
     <div class="card">
-        <div class="loop-title">2. The While Loop</div>
-        <p class="description">The "Watchman": Runs as long as the condition stays true.</p>
+        <div class="loop-title">2. The WHILE Loop</div>
+        <p class="description">Checks the condition BEFORE running the code.</p>
         
-        <strong>Increment (Adding 2)</strong>
+        <strong>Increment (Up by 10s)</strong>
         <pre>let i = 0;
-while (i <= 4) {
+while (i <= 30) {
   console.log(i);
-  i += 2;
+  i += 10;
 }</pre>
         <span class="output-label">Result:</span>
-        <div class="output up">0, 2, 4</div>
+        <div class="output up">0, 10, 20, 30</div>
 
-        <strong>Decrement (Subtracting 2)</strong>
-        <pre>let i = 10;
-while (i >= 6) {
+        <strong>Decrement (Down by 5s)</strong>
+        <pre>let i = 15;
+while (i >= 0) {
   console.log(i);
-  i -= 2;
+  i -= 5;
 }</pre>
         <span class="output-label">Result:</span>
-        <div class="output down">10, 8, 6</div>
+        <div class="output down">15, 10, 5, 0</div>
     </div>
 
-    <!-- DO...WHILE LOOP SECTION -->
+    <!-- SECTION 3: DO...WHILE LOOP -->
     <div class="card">
-        <div class="loop-title">3. The Do...While Loop</div>
-        <p class="description">The "First Try": Always runs at least once before checking.</p>
+        <div class="loop-title">3. The DO...WHILE Loop</div>
+        <p class="description">The "Do it anyway" loop. Checks the condition AFTER running once.</p>
         
-        <strong>Increment (At least once)</strong>
-        <pre>let i = 0;
+        <strong>Increment (Guaranteed Execution)</strong>
+        <pre>let i = 100;
 do {
   console.log(i);
   i++;
-} while (i < 1);</pre>
+} while (i < 10);</pre>
         <span class="output-label">Result:</span>
-        <div class="output up">0</div>
-
-        <strong>Decrement (Countdown)</strong>
-        <pre>let i = 2;
-do {
-  console.log(i);
-  i--;
-} while (i > 0);</pre>
-        <span class="output-label">Result:</span>
-        <div class="output down">2, 1</div>
+        <div class="output up">100 (Runs once even though 100 is not less than 10!)</div>
     </div>
 
+    <!-- TEACHER'S NOTES SECTION -->
+    <div class="notes-section">
+        <p class="notes-title">💡 Important Notes to Remember</p>
+        <ul class="notes-list">
+            <li><strong>Initialization:</strong> Where the loop starts (e.g., <code>let i = 0</code>).</li>
+            <li><strong>Condition:</strong> The loop keeps running <em>while</em> this is true (e.g., <code>i < 10</code>).</li>
+            <li><strong>The Change:</strong> If you forget to increment (<code>i++</code>) or decrement (<code>i--</code>), you create an <strong>Infinite Loop</strong> which can crash your browser!</li>
+            <li><strong>Incrementing:</strong> Usually moves from a <em>lower</em> number to a <em>higher</em> number using <code><</code>.</li>
+            <li><strong>Decrementing:</strong> Moves from a <em>higher</em> number to a <em>lower</em> number using <code>></code>.</li>
+            <li><strong>When to use what?</strong> Use <code>for</code> for known counts, <code>while</code> for unknown durations, and <code>do...while</code> when you need at least one result.</li>
+        </ul>
+    </div>
 </div>
 
 </body>
